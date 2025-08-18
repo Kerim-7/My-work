@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Experience from './components/Experience'
+import Education from './components/Education'
+import AboutMe from './components/AboutMe'
 import Skills from './components/Skills'
 import Footer from './components/Footer'
 import BurgerMenu from './components/BurgerMenu'
@@ -45,8 +47,10 @@ function App() {
         onLanguageChange={handleLanguageChange} 
       />
       <Header data={portfolioData.header} />
-      <Experience data={portfolioData.experience} />
-      <Skills data={portfolioData.skills} />
+      <Experience data={portfolioData.experience} currentLanguage={currentLanguage} />
+      <Education education={portfolioData.education} currentLanguage={currentLanguage} />
+      <AboutMe aboutMe={portfolioData.aboutMe} currentLanguage={currentLanguage} />
+      <Skills data={portfolioData.skills} currentLanguage={currentLanguage} />
       <Footer data={portfolioData.footer} />
     </div>
   )

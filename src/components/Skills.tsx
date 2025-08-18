@@ -3,9 +3,10 @@ import { SkillCategory } from '../data/portfolio'
 
 interface SkillsProps {
   data: SkillCategory[]
+  currentLanguage?: 'ru' | 'en' | 'it' | 'zh'
 }
 
-const Skills: React.FC<SkillsProps> = ({ data }) => {
+const Skills: React.FC<SkillsProps> = ({ data, currentLanguage = 'ru' }) => {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 
@@ -26,11 +27,24 @@ const Skills: React.FC<SkillsProps> = ({ data }) => {
     return () => observer.disconnect()
   }, [])
 
+  const getTitle = () => {
+    switch (currentLanguage) {
+      case 'en':
+        return 'Skills';
+      case 'it':
+        return 'Competenze';
+      case 'zh':
+        return '技能';
+      default:
+        return 'Навыки';
+    }
+  };
+
   return (
     <section ref={sectionRef} id="skills" className="section">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Навыки</h2>
+          <h2 className="section-title">{getTitle()}</h2>
         </div>
         
         <div className="skills-grid">
