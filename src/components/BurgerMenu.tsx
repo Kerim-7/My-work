@@ -91,6 +91,20 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ currentLanguage, onLanguageChan
                 </a>
               </li>
               <li>
+                <a href="#education" className="burger-nav-item" onClick={toggleMenu}>
+                  {currentLanguage === 'ru' ? 'Образование' :
+                   currentLanguage === 'en' ? 'Education' :
+                   currentLanguage === 'it' ? 'Istruzione' : '教育'}
+                </a>
+              </li>
+              <li>
+                <a href="#about-me" className="burger-nav-item" onClick={toggleMenu}>
+                  {currentLanguage === 'ru' ? 'Обо мне' :
+                   currentLanguage === 'en' ? 'About Me' :
+                   currentLanguage === 'it' ? 'Su di Me' : '关于我'}
+                </a>
+              </li>
+              <li>
                 <a href="#skills" className="burger-nav-item" onClick={toggleMenu}>
                   {currentLanguage === 'ru' ? 'Навыки' :
                    currentLanguage === 'en' ? 'Skills' :
