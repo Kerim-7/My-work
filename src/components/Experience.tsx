@@ -4,12 +4,55 @@ import Modal from './Modal'
 
 interface ExperienceProps {
   data: ExperienceItem[]
+  currentLanguage?: 'ru' | 'en' | 'it' | 'zh'
 }
 
-const Experience: React.FC<ExperienceProps> = ({ data }) => {
+const Experience: React.FC<ExperienceProps> = ({ data, currentLanguage = 'ru' }) => {
   const [selectedProject, setSelectedProject] = useState<ExperienceItem | null>(null)
   const [isVisible, setIsVisible] = useState(false)
+
   const sectionRef = useRef<HTMLElement>(null)
+
+  const getTranslations = () => {
+    switch (currentLanguage) {
+      case 'en':
+        return {
+          title: 'Work Experience',
+          details: 'Details',
+          projectDescription: 'Project Description:',
+          responsibilities: 'Responsibilities:',
+          keyAchievements: 'Key Achievements:',
+          technologies: 'Technologies:'
+        };
+      case 'it':
+        return {
+          title: 'Esperienza Lavorativa',
+          details: 'Dettagli',
+          projectDescription: 'Descrizione del Progetto:',
+          responsibilities: 'Responsabilità:',
+          keyAchievements: 'Risultati Chiave:',
+          technologies: 'Tecnologie:'
+        };
+      case 'zh':
+        return {
+          title: '工作经验',
+          details: '详情',
+          projectDescription: '项目描述:',
+          responsibilities: '职责:',
+          keyAchievements: '主要成就:',
+          technologies: '技术:'
+        };
+      default:
+        return {
+          title: 'Опыт работы',
+          details: 'Подробнее',
+          projectDescription: 'Описание проекта:',
+          responsibilities: 'Обязанности:',
+          keyAchievements: 'Ключевые достижения:',
+          technologies: 'Технологии:'
+        };
+    }
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,9 +83,9 @@ const Experience: React.FC<ExperienceProps> = ({ data }) => {
     <>
       <section ref={sectionRef} id="experience" className="section">
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Опыт работы</h2>
-          </div>
+                  <div className="section-header">
+          <h2 className="section-title">{getTranslations().title}</h2>
+        </div>
           
           <div className="timeline">
             {data.map((item, index) => (
@@ -51,7 +94,6 @@ const Experience: React.FC<ExperienceProps> = ({ data }) => {
                 className={`timeline-item ${isVisible ? 'animate-in' : ''}`}
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="timeline-date">{item.period}</div>
                 <div className="timeline-content">
                   <h3 
                     className="company clickable"
@@ -59,20 +101,28 @@ const Experience: React.FC<ExperienceProps> = ({ data }) => {
                   >
                     {item.company}
                   </h3>
+                  <p className="period">{item.period}</p>
                   <p className="position">{item.position}</p>
                   <p>{item.description}</p>
                   <ul className="achievements">
-                    {item.achievements.slice(0, 3).map((achievement, idx) => (
-                      <li key={idx} style={{ animationDelay: `${(index * 0.2) + (idx * 0.1)}s` }}>
-                        {achievement}
-                      </li>
-                    ))}
+                    {Array.isArray(item.achievements) 
+                      ? item.achievements.slice(0, 3).map((achievement, idx) => (
+                          <li key={idx} style={{ animationDelay: `${(index * 0.2) + (idx * 0.1)}s` }}>
+                            {achievement}
+                          </li>
+                        ))
+                      : Object.values(item.achievements).flat().slice(0, 3).map((achievement, idx) => (
+                          <li key={idx} style={{ animationDelay: `${(index * 0.2) + (idx * 0.1)}s` }}>
+                            {achievement}
+                          </li>
+                        ))
+                    }
                   </ul>
                   <button 
                     className="details-btn"
                     onClick={() => handleProjectClick(item)}
                   >
-                    Подробнее
+                    {getTranslations().details}
                   </button>
                 </div>
               </div>
@@ -94,13 +144,13 @@ const Experience: React.FC<ExperienceProps> = ({ data }) => {
             </div>
             
             <div className="project-description">
-              <h5>Описание проекта:</h5>
+              <h5>{getTranslations().projectDescription}</h5>
               <p>{selectedProject.description}</p>
             </div>
             
             {selectedProject.responsibilities && (
               <div className="project-responsibilities">
-                <h5>Обязанности:</h5>
+                <h5>{getTranslations().responsibilities}</h5>
                 {Object.entries(selectedProject.responsibilities).map(([category, tasks], categoryIdx) => (
                   <div key={category} className="responsibility-category">
                     <h6 style={{ animationDelay: `${categoryIdx * 0.2}s` }}>{category}:</h6>
@@ -117,17 +167,32 @@ const Experience: React.FC<ExperienceProps> = ({ data }) => {
             )}
             
             <div className="project-achievements">
-              <h5>Ключевые достижения:</h5>
-              <ul>
-                {selectedProject.achievements.map((achievement, index) => (
-                  <li key={index}>{achievement}</li>
-                ))}
-              </ul>
+              <h5>{getTranslations().keyAchievements}</h5>
+              {Array.isArray(selectedProject.achievements) ? (
+                <ul>
+                  {selectedProject.achievements.map((achievement, index) => (
+                    <li key={index}>{achievement}</li>
+                  ))}
+                </ul>
+              ) : (
+                Object.entries(selectedProject.achievements).map(([category, achievements], categoryIdx) => (
+                  <div key={category} className="achievement-category">
+                    <h5 style={{ animationDelay: `${categoryIdx * 0.2}s` }}>{category}:</h5>
+                    <ul>
+                      {achievements.map((achievement, index) => (
+                        <li key={index} style={{ animationDelay: `${(categoryIdx * 0.2) + (index * 0.1)}s` }}>
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              )}
             </div>
             
             {selectedProject.technologies && (
               <div className="project-tech">
-                <h5>Технологии:</h5>
+                <h5>{getTranslations().technologies}</h5>
                 <div className="tech-tags">
                   {selectedProject.technologies.map((tech, index) => (
                     <span key={index} className="tech-tag" style={{ animationDelay: `${index * 0.1}s` }}>

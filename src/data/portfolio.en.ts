@@ -5,9 +5,10 @@ export const portfolioDataEn: PortfolioData = {
   header: {
     name: "Kerim",
     role: "Frontend Developer",
-          tagline: "Frontend Developer with 5+ years of experience creating high-load web applications and technical team leadership",
+    tagline: "Frontend Developer with 5+ years of experience creating high-load web applications and technical team leadership",
     phone: "+79286270754",
-    email: "kerimabdulkerimov777@gmail.com",
+    email: "abdulkerimovk6@gmail.com",
+    telegram: "https://t.me/kerim_ab",
     avatar: getAssetPath("assets/avatar.jpg")
   },
   experience: [
@@ -17,14 +18,13 @@ export const portfolioDataEn: PortfolioData = {
       position: "Frontend Developer",
       period: "2024-2025",
       description: "XPay is a high-load payment system designed for secure online transactions, balance management, and integration with banking services. The system processes millions of transactions monthly, ensuring 99.9% uptime. The platform provides users with a convenient interface for making payments, tracking transaction history, and configuring financial tools. The architecture is built on microservices using REST API and RTK Query for efficient data handling.",
-      achievements: [
-        "Architecturally designed and successfully integrated a payment gateway, ensuring seamless processing of millions of transactions monthly",
-        "Architecturally optimized application performance, reducing interface loading time by 30% through lazy loading, code splitting, and asynchronous resource loading",
-        "Architecturally designed and enhanced system security by implementing additional data validation, suspicious activity monitoring, and OWASP Top 10 protection",
-        "Architecturally designed API versioning scheme with the backend team, ensuring backward compatibility and smooth migration",
-        "Architecturally designed and created a comprehensive testing system with Cypress for critical paths (85% coverage), including E2E tests for payment scenarios",
-        "Architecturally designed and conducted refactoring from monolith to microservices, improving system scalability and maintainability"
-      ],
+      achievements: {
+        "Interface Development": [
+          "Designed and implemented personal account (balance, transaction history, payment management).",
+          "Created adaptive forms with validation and masking (cards, details) for secure input.",
+          "Optimized layout with CSS Grid / Flexbox, ensuring cross-browser compatibility."
+        ]
+      },
       technologies: [
         "TypeScript",
         "React", 
@@ -36,19 +36,20 @@ export const portfolioDataEn: PortfolioData = {
         "Jest"
       ],
       responsibilities: {
-        "Architectural User Interface Development": [
-          "Architecturally designed and created an intuitive personal account interface with balance viewing, transaction history, and payment management capabilities",
-          "Architecturally designed and implemented responsive and cross-browser layout using SCSS and modern approaches (CSS Grid, Flexbox)",
-          "Architecturally designed and developed dynamic payment data input forms with validation, masking (cards, details), and sanitization"
+        "Integration and Optimization": [
+          "Configured REST API interaction for payments, balance, and transactions.",
+          "Improved caching and reduced unnecessary requests with RTK Query.",
+          "Accelerated loading by 30% through lazy loading, code splitting, and asynchronous loading."
         ],
-        "Architectural Backend Integration": [
-          "Architecturally designed and configured interaction with REST API for payment processing, transaction data retrieval, and real-time balance updates",
-          "Architecturally optimized server requests using RTK Query, reducing redundant requests and improving caching"
+        "Security and Testing": [
+          "Implemented protection against CSRF, XSS, CVV/CVC masking.",
+          "Added monitoring of suspicious operations and OWASP Top 10 protection.",
+          "Developed testing (Jest, RTL, Cypress) with 85% coverage of key scenarios."
         ],
-        "Architectural Security and Performance": [
-          "Architecturally designed and implemented protection against CSRF attacks, XSS, and mechanisms to prevent data leakage (CVC/CVV masking)",
-          "Architecturally improved application performance through lazy loading, code splitting, caching, and rendering optimization",
-          "Architecturally configured unit and integration testing of critical components using Jest and React Testing Library"
+        "Architectural Improvements": [
+          "Conducted refactoring from monolith to microservices, improving scalability.",
+          "Designed API versioning for backward compatibility.",
+          "Automated E2E tests for payment processes."
         ]
       }
     },
@@ -57,15 +58,14 @@ export const portfolioDataEn: PortfolioData = {
       company: "Kassa.cc",
       position: "Frontend Developer",
       period: "2022-2024",
-      description: "Kassa.cc is a high-load platform for cryptocurrency exchange to fiat currencies with support for multiple payment systems. The system processes thousands of transactions daily, providing secure and fast exchange of Bitcoin, Ethereum, and other cryptocurrencies to rubles through SBP, bank cards, and e-wallets. The architecture is built on microservices using GraphQL for efficient data handling. The platform provides users with an intuitive interface for real-time rate tracking, exchange execution, and transaction history management.",
-      achievements: [
-        "Architecturally designed and implemented a code review system with automatic checking through ESLint, improving code quality by 40% and reducing critical bugs by 60%",
-        "Developed and implemented a design token system in Figma with automatic synchronization in Storybook, accelerating UI component development by 60% and ensuring design consistency",
-        "Conducted weekly architectural workshops for a team of 5 developers, leading to a 35% reduction in bugs and 25% increase in development speed",
-        "Architecturally designed and implemented a feature flags system for gradual rollout of changes, reducing deployment time by 70% and lowering release risks",
-        "Optimized development processes by transitioning from 2-week to 1-week sprints, increasing feature delivery speed by 40%",
-        "Improved application performance by 45% through rendering optimization, virtualization for large lists, and efficient caching"
-      ],
+      description: "Kassa.cc — cryptocurrency exchange platform. High-load platform for cryptocurrency exchange (BTC, ETH, etc.) to fiat (rubles via SBP, cards, e-wallets). Processes thousands of transactions daily with microservice architecture on GraphQL and WebSocket for real-time.",
+      achievements: {
+        "Technical Leadership": [
+          "Led a team of 5 frontend developers (code review, mentoring, architectural workshops).",
+          "Designed GraphQL schemas and API contracts coordinated with backend.",
+          "Implemented automated code review (ESLint), reducing bugs by 60% and improving code quality by 40%."
+        ]
+      },
       technologies: [
         "TypeScript",
         "React",
@@ -77,61 +77,20 @@ export const portfolioDataEn: PortfolioData = {
         "WebSocket"
       ],
       responsibilities: {
-        "Technical Leadership and Architecture": [
-          "Architecturally designed and led a team of 5 frontend developers, conducted code reviews and technical mentoring",
-          "Coordination with backend team on API contracts, GraphQL schema design, and architectural decisions",
-          "Conducting weekly architectural workshops for the team, implementing best practices and code standards"
-        ],
-        "High-Load Interface Development": [
-          "Architecturally designed and created an intuitive interface for cryptocurrency exchange with real-time rate display through WebSocket",
-          "Implementation of responsive layout with support for all modern browsers and mobile devices, optimization for high loads",
-          "Development of data input forms with cryptocurrency address and banking details validation, implementation of masking and sanitization"
-        ],
-        "Security and Performance": [
-          "Architecturally designed and implemented protection against CSRF attacks, XSS, and mechanisms to prevent data leakage",
-          "Application performance optimization through lazy loading, virtualization, caching, and memoization",
-          "Configuration of unit and integration testing of critical components using Jest and React Testing Library"
-        ]
-      }
-    },
-    {
-      id: "logistar",
-      company: "LogistAR",
-      position: "Frontend Developer",
-      period: "2021-2022",
-      description: "An innovative web platform designed to optimize cargo transportation processes between warehouses across Russia. The system is developed to automate and simplify the work of employees involved in organizing and controlling delivery, and supports various user roles: administrator, carrier, key user, and accountant.",
-      achievements: [
-        "Optimized loading and display of large volumes of reports by implementing pagination and staged data loading",
-        "Significantly simplified the user interface by implementing intuitive icons and improving navigation",
-        "Improved administrative panel performance with a large number of users by implementing efficient data caching",
-        "Development of a fitness mobile application on React Native (from idea to publication in App Store and Google Play)",
-        "Integration with REST API, push notification setup, analytics, and authorization",
-        "Creation of adaptive web interfaces for internal company services"
-      ],
-      technologies: [
-        "HTML",
-        "CSS", 
-        "React",
-        "TypeScript",
-        "Git",
-        "REST API",
-        "SASS/SCSS",
-        "React Leaflet",
-        "Bootstrap"
-      ],
-      responsibilities: {
         "Interface Development": [
-          "Development of registration and authorization forms with advanced user data validation",
-          "Creation of an administrative panel for managing user roles and access control",
-          "Implementation of order display and detailed view functionality using interactive tables"
+          "Created intuitive exchange with dynamic rates via WebSocket.",
+          "Developed adaptive forms with crypto-address and banking details validation.",
+          "Implemented design tokens (Figma → Storybook), accelerating UI development by 60%."
         ],
-        "Integration and Cartography": [
-          "Implementation of the ability to add new orders with route visualization on the map (React Leaflet)",
-          "Development of a reports page with the ability to print documents directly from the platform interface"
+        "Optimization and Security": [
+          "Improved performance by 45% through list virtualization, lazy loading, and memoization.",
+          "Optimized GraphQL caching for fast data handling.",
+          "Added protection against CSRF/XSS, masking sensitive data."
         ],
-        "Testing and Optimization": [
-          "Conducting manual testing, identifying and promptly fixing bugs",
-          "Performance and user experience optimization"
+        "Processes and Releases": [
+          "Introduced feature flags for gradual rollout, reducing release risks by 70%.",
+          "Transitioned team to 1-week sprints, accelerating feature delivery by 40%.",
+          "Configured E2E tests (Jest, RTL) for critical scenarios."
         ]
       }
     },
@@ -139,7 +98,7 @@ export const portfolioDataEn: PortfolioData = {
       id: "smarthome",
       company: "SmartHome Central",
       position: "Frontend Developer",
-      period: "2020-2021",
+      period: "2022-2023",
       description: "An innovative online service specializing in the sale and management of smart devices for the modern home. The platform provides users with a convenient web interface for selecting, configuring, and ordering smart devices, fully adapted to individual needs. Each device is equipped with an intuitive user interface that allows flexible control of parameters and operating modes. The built-in controller provides reliable and simple control over all device functions, making the interaction process as comfortable and safe as possible for the user. The project is focused on creating a unified ecosystem for smart home management, combining a wide range of devices and modern security standards.",
       achievements: [
         "Successfully integrated PayPal payment system, providing secure and convenient online payments for users",
@@ -179,8 +138,106 @@ export const portfolioDataEn: PortfolioData = {
           "Protection against automated attacks (bots) using modern methods"
         ]
       }
+    },
+    {
+      id: "logistar",
+      company: "LogistAR",
+      position: "Frontend Developer",
+      period: "2020-2021",
+      description: "An innovative web platform designed to optimize cargo transportation processes between warehouses across Russia. The system is developed to automate and simplify the work of employees involved in organizing and controlling delivery, and supports various user roles: administrator, carrier, key user, and accountant.",
+      achievements: [
+        "Optimized loading and display of large volumes of reports by implementing pagination and staged data loading",
+        "Significantly simplified the user interface by implementing intuitive icons and improving navigation",
+        "Improved administrative panel performance with a large number of users by implementing efficient data caching",
+        "Development of a fitness mobile application on React Native (from idea to publication in App Store and Google Play)",
+        "Integration with REST API, push notification setup, analytics, and authorization",
+        "Creation of adaptive web interfaces for internal company services"
+      ],
+      technologies: [
+        "HTML",
+        "CSS", 
+        "React",
+        "TypeScript",
+        "Git",
+        "REST API",
+        "SASS/SCSS",
+        "React Leaflet",
+        "Bootstrap"
+      ],
+      responsibilities: {
+        "Interface Development": [
+          "Development of registration and authorization forms with advanced user data validation",
+          "Creation of an administrative panel for managing user roles and access control",
+          "Implementation of order display and detailed view functionality using interactive tables"
+        ],
+        "Integration and Cartography": [
+          "Implementation of the ability to add new orders with route visualization on the map (React Leaflet)",
+          "Development of a reports page with the ability to print documents directly from the platform interface"
+        ],
+        "Testing and Optimization": [
+          "Conducting manual testing, identifying and promptly fixing bugs",
+          "Performance and user experience optimization"
+        ]
+      }
     }
   ],
+  education: [
+    {
+      degree: "Higher Education",
+      institution: "Taganrog Institute of Technology, Southern Federal University",
+      period: "2025",
+      location: "Taganrog",
+      department: "Institute of Radio Engineering Systems and Control",
+      specialization: "Computer Control Technologies in Robotics and Mechatronics"
+    }
+  ],
+  aboutMe: {
+    intro: [
+      "I am a Frontend Developer with 5+ years of experience who sees code not just as lines, but as a tool for creating convenient, fast, and secure digital products. My approach combines technical depth with attention to detail: from page loading optimization to security hardening.",
+      "Why frontend? I enjoy being at the intersection of technology and user experience. Every pixel, animation, or micro‑interaction is a story that must work flawlessly."
+    ],
+    keyCompetencies: [
+      "Development of SPAs and complex interactive interfaces",
+      "Performance optimization (Core Web Vitals, bundles, lazy loading)",
+      "Modern stacks (React/Next.js, Vue/Nuxt, Svelte/SvelteKit)",
+      "Backend integration (REST/GraphQL, WebSockets)",
+      "Cross-browser and mobile layout"
+    ],
+    hardSkills: {
+      main: [
+        "JavaScript/TypeScript (ES6+, strict typing)",
+        "React (Hooks, Redux Toolkit, Zustand)",
+        "Next.js (SSR, SSG, ISR)",
+        "CSS (Tailwind, SCSS, CSS Modules, styled-components)",
+        "Testing (Jest, React Testing Library, Cypress)"
+      ],
+      additional: [
+        "Animations (Framer Motion, GSAP)",
+        "Build tools (Vite, Webpack)",
+        "CI/CD (GitHub Actions, Docker)",
+        "Design systems (Figma, Storybook)"
+      ]
+    },
+    softSkills: [
+      "UX-oriented — understanding the connection between code and user experience",
+      "Critical thinking — finding optimal solutions",
+      "Teamwork — effective collaboration with backend and designers",
+      "Flexibility — quick adoption of new technologies"
+    ],
+    principles: [
+      "Performance is a feature",
+      "Types > any",
+      "Tests are part of the process",
+      "Documentation of key decisions"
+    ],
+    additionalSkills: [
+      "English (Intermediate)",
+      "Basic backend (Express, API routes)",
+      "SEO optimization",
+      "Working with design layouts (Figma, Photoshop)",
+      "Analysis tools (Lighthouse, Sentry)"
+    ]
+  },
   skills: [
     {
       id: "frontend",
@@ -238,8 +295,8 @@ export const portfolioDataEn: PortfolioData = {
     socials: {
       github: "#",
       linkedin: "#",
-      telegram: "https://t.me/A7Kerim",
-      email: "kerimabdulkerimov777@gmail.com"
+      telegram: "https://t.me/kerim_ab ",
+      email: "abdulkerimovk6@gmail.com"
     }
   }
 }

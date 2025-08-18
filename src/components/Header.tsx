@@ -3,9 +3,10 @@ import { HeaderData } from '../data/portfolio'
 
 interface HeaderProps {
   data: HeaderData
+  aboutIntro?: string[]
 }
 
-const Header: React.FC<HeaderProps> = ({ data }) => {
+const Header: React.FC<HeaderProps> = ({ data, aboutIntro }) => {
   const [isVisible, setIsVisible] = useState(false)
   const [isTyping, setIsTyping] = useState(false)
   const [isTypingCompleted, setIsTypingCompleted] = useState(false)
@@ -44,9 +45,14 @@ const Header: React.FC<HeaderProps> = ({ data }) => {
                data.name === 'Kerim' ? 'Hello, I am' :
                data.name === '凯里姆' ? '你好，我是' : 'Ciao, sono'} <span className="highlight">{data.name}</span>
             </h1>
-            <p className={`tagline ${isTyping ? 'typing-animation' : ''} ${isTypingCompleted ? 'completed' : ''}`}>
-              {data.tagline}
-            </p>
+            {/* Tagline removed by request */}
+            {aboutIntro && aboutIntro.length > 0 && (
+              <div className="about-intro" style={{ marginTop: '16px' }}>
+                {aboutIntro.map((paragraph, index) => (
+                  <p key={index} style={{ marginBottom: '12px' }}>{paragraph}</p>
+                ))}
+              </div>
+            )}
             
             <div className="contacts">
               <a 
@@ -60,14 +66,26 @@ const Header: React.FC<HeaderProps> = ({ data }) => {
                  data.name === '凯里姆' ? '打电话' : 'Chiama'}
               </a>
               <a 
-                href={`mailto:${data.email}`} 
+                href={data.telegram ? (data.telegram.startsWith('http') ? data.telegram : `https://t.me/${data.telegram.replace('@','')}`) : `mailto:${data.email}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="contact-btn secondary animate-btn"
                 style={{ animationDelay: '0.2s' }}
               >
+                <i className="fab fa-telegram"></i>
+                {data.name === 'Керим' ? 'Написать в Telegram' : 
+                 data.name === 'Kerim' ? 'Message on Telegram' :
+                 data.name === '凯里姆' ? '在 Telegram 联系' : 'Scrivi su Telegram'}
+              </a>
+              <a 
+                href={`mailto:${data.email}`} 
+                className="contact-btn secondary animate-btn"
+                style={{ animationDelay: '0.3s' }}
+              >
                 <i className="fas fa-envelope"></i>
-                {data.name === 'Керим' ? 'Написать' : 
-                 data.name === 'Kerim' ? 'Write' :
-                 data.name === '凯里姆' ? '写信' : 'Scrivi'}
+                {data.name === 'Керим' ? 'Написать на почту' : 
+                 data.name === 'Kerim' ? 'Email' :
+                 data.name === '凯里姆' ? '发送邮件' : 'Email'}
               </a>
             </div>
           </div>

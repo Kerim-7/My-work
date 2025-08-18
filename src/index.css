@@ -147,7 +147,7 @@ h1 {
 
 /* Секции */
 .section {
-  padding: 100px 0;
+  padding: 50px 0;
 }
 
 .section-header {
@@ -239,6 +239,12 @@ h1 {
   background: var(--primary);
   border-radius: 50%;
   border: 4px solid var(--white);
+}
+
+@media (max-width: 768px) {
+  .timeline-content::before {
+    top: 40px;
+  }
 }
 
 .company {
@@ -412,6 +418,10 @@ h1 {
     clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
   }
 
+  .section {
+    padding: 25px 0;
+  }
+
   h1 {
     font-size: 2.5rem;
   }
@@ -565,12 +575,20 @@ h1 {
 
 .project-description h5,
 .project-achievements h5,
-.project-tech h5,
-.project-responsibilities h5 {
+.project-tech h5 {
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0 0 12px 0;
   color: var(--black);
+}
+
+.project-responsibilities h5,
+.achievement-category h5 {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  margin: 0 0 12px 0 !important;
+  color: var(--primary) !important;
+  font-family: inherit !important;
 }
 
 .project-description p {
@@ -579,12 +597,14 @@ h1 {
   color: var(--gray);
 }
 
-.project-achievements ul {
+.project-achievements ul,
+.achievement-category ul {
   margin: 0;
   padding-left: 20px;
 }
 
-.project-achievements li {
+.project-achievements li,
+.achievement-category li {
   margin-bottom: 8px;
   line-height: 1.5;
   color: var(--gray);
@@ -1142,6 +1162,259 @@ h1.typing-animation.completed {
 .timeline-item:nth-child(3) .position { animation-delay: 0.6s; }
 .timeline-item:nth-child(4) .position { animation-delay: 0.8s; }
 
+/* Образование */
+.education-section {
+  padding: 5px 0 10px 0;
+  background: var(--white);
+}
+
+.education-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.education-item {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  transition: var(--transition);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInUp 0.6s ease forwards;
+}
+
+.education-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary);
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.education-degree {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+}
+
+.education-period {
+  background: var(--primary);
+  color: var(--white);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.education-institution {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--black);
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+.education-location {
+  color: var(--gray);
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Адаптивность для образования */
+@media (max-width: 768px) {
+  .education-section {
+    padding: 3px 0 7px 0;
+  }
+  
+  .education-item {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .education-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .education-degree {
+    font-size: 1.3rem;
+  }
+  
+  .education-institution {
+    font-size: 1.1rem;
+  }
+}
+
+/* О себе */
+.about-self-section {
+  padding: 10px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+/* Обо мне */
+.about-me-section {
+  padding: 10px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.about-me-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  gap: 40px;
+}
+
+.about-me-block {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  transition: var(--transition);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInUp 0.6s ease forwards;
+}
+
+.about-me-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary);
+}
+
+.block-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 10px;
+}
+
+.skills-subsection {
+  margin-bottom: 25px;
+}
+
+.skills-subsection:last-child {
+  margin-bottom: 0;
+}
+
+.subsection-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 15px;
+}
+
+.competencies-list,
+.skills-list,
+.principles-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.competency-item,
+.skill-item,
+.principle-item {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--black);
+  position: relative;
+  padding-left: 20px;
+}
+
+.competency-item:before,
+.skill-item:before {
+  content: "•";
+  color: var(--primary);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 12px;
+}
+
+.principle-item {
+  counter-increment: principle-counter;
+  padding-left: 30px;
+}
+
+.principle-item:before {
+  content: counter(principle-counter);
+  color: var(--white);
+  background: var(--primary);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 12px;
+}
+
+.principles-list {
+  counter-reset: principle-counter;
+}
+
+.competency-item:last-child,
+.skill-item:last-child,
+.principle-item:last-child {
+  border-bottom: none;
+}
+
+/* Адаптивность для "Обо мне" */
+@media (max-width: 768px) {
+  .about-me-section {
+    padding: 60px 0;
+  }
+  
+  .about-me-content {
+    gap: 30px;
+  }
+  
+  .about-me-block {
+    padding: 20px;
+  }
+  
+  .block-title {
+    font-size: 1.5rem;
+  }
+  
+  .subsection-title {
+    font-size: 1.1rem;
+  }
+  
+  .competency-item,
+  .skill-item,
+  .principle-item {
+    font-size: 0.95rem;
+    padding: 10px 0 10px 18px;
+  }
+  
+  .principle-item {
+    padding-left: 28px;
+  }
+}
+
 /* Переключатель языков */
 .language-switcher {
   position: fixed;
@@ -1219,6 +1492,13 @@ h1.typing-animation.completed {
   top: 20px;
   left: 20px;
   z-index: 1001;
+}
+
+/* Прячем бургер при открытой модалке на всех устройствах */
+body.modal-open .burger-menu,
+body.modal-open .burger-overlay,
+body.modal-open .burger-nav {
+  display: none !important;
 }
 
 .burger-button {
